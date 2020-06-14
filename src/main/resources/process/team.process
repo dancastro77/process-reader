@@ -1,0 +1,26 @@
+{
+	"name": "TEAM",
+	"description": "TEAM recruiting process",
+	"owner": "dcastrot",
+	"executorRoles": ["recruiter"], 
+	"processStructure": [
+		{
+			"name": "Publish opening",
+			"description": "Publish opening",
+			"owner": "dcastrot",
+			"executorRoles": ["recruiter"],
+			"isManual": false,
+			"inputSchema": "schema-007::1",
+			"stepExecutor": "com.thing.SimpleExecutor" 
+		},
+		{
+			"name": "Receive CVs",
+			"description": "Receive CVs",
+			"owner": "dcastrot",
+			"executorRoles": ["recruiter", "candidate"],
+			"isManual": false,
+			"inputSchema": "schema-008::1",
+			"stepExecutor": "com.thing.SimpleExecutor" 
+		}
+	]
+}	

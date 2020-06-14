@@ -1,0 +1,50 @@
+{
+  "name" : "TEAM Process",
+  "owner" : "dcastro",
+  "possibleExecutors" : [ "creator", "executor" ],
+  "subprocesses" : [ {
+    "activationCriterion" : "com.time.thing.ActivationCriterion1",
+    "finalizationCriterion" : "com.time.thing.FinalizationCriterion1",
+    "subprocess" : {
+      "name" : "Post offer",
+      "owner" : "dcastro",
+      "possibleExecutors" : [ "creator", "executor" ],
+      "manual" : true,
+      "inputSchema" : "schema1",
+      "stepExecutor" : "executorClass1"
+    }
+  }, {
+    "activationCriterion" : "com.time.thing.ActivationCriterion2",
+    "finalizationCriterion" : "com.time.thing.FinalizationCriterion2",
+    "subprocess" : {
+      "name" : "Receive applications",
+      "owner" : "dcastro",
+      "possibleExecutors" : [ "creator", "executor" ],
+      "subprocesses" : [ {
+        "activationCriterion" : "com.time.thing.ActCrit2",
+        "finalizationCriterion" : "com.time.thing.FinCrit2",
+        "subprocess" : {
+          "name" : "Receive application",
+          "owner" : "dcastro",
+          "possibleExecutors" : [ "creator", "executor" ],
+          "manual" : false,
+          "inputSchema" : "schema2",
+          "stepExecutor" : "executorClass2"
+        }
+      }, {
+        "activationCriterion" : "com.time.thing.ActCrit3",
+        "finalizationCriterion" : "com.time.thing.FinCrit3",
+        "subprocess" : {
+          "name" : "Close",
+          "owner" : "dcastro",
+          "possibleExecutors" : [ "creator", "executor" ],
+          "manual" : true,
+          "inputSchema" : "schema3",
+          "stepExecutor" : "executorClass3"
+        }
+      } ],
+      "sequential" : true
+    }
+  } ],
+  "sequential" : true
+}
